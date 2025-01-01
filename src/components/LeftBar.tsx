@@ -69,7 +69,7 @@ function LeftBar() {
           </div>
           <div className="hidden xxl:flex flex-col">
             <span className="font-bold">Diego Verdan</span>
-            <span className="text-sm text-textGray">@verdan.diego</span>
+            <span className="text-sm text-textGray">@verdan_diego</span>
           </div>
         </div>
         <div className="hidden xxl:block cursor-pointer font-bold">...</div>
