@@ -26,7 +26,10 @@ function Share() {
   const previewURL = media ? URL.createObjectURL(media) : null;
 
   return (
-    <form className="p-4 flex gap-4" action={shareAction}>
+    <form
+      className="p-4 flex gap-4"
+      action={(formData) => shareAction(formData, settings)}
+    >
       {/* AVATAR */}
       <div className="relative w-10 h-10 rounded-full overflow-hidden">
         <Image path="general/avatar.png" alt="" w={100} h={100} tr={true} />
@@ -49,6 +52,13 @@ function Share() {
               src={previewURL}
               width={600}
               height={600}
+              className={`w-full ${
+                settings.type === "original"
+                  ? "h-full object-contain"
+                  : settings.type === "square"
+                  ? "aspect-square object-cover"
+                  : "aspect-video object-cover"
+              }`}
             />
             <div
               onClick={() => setIsEditorOpen(true)}

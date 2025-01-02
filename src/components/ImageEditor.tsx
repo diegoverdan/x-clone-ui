@@ -47,7 +47,10 @@ function ImageEditor({
             </svg>
             <h1 className="font-bold text-xl">Media Settings</h1>
           </div>
-          <button className="py-2 px-4 rounded-full bg-white text-black font-bold">
+          <button
+            className="py-2 px-4 rounded-full bg-white text-black font-bold"
+            onClick={onClose}
+          >
             Save
           </button>
         </div>
