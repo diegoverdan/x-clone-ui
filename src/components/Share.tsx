@@ -5,6 +5,7 @@ import NextImage from "next/image";
 import React, { useState } from "react";
 import Image from "./Image";
 import ImageEditor from "./ImageEditor";
+import Video from "./Video";
 
 function Share() {
   const [media, setMedia] = useState<File | null>(null);
@@ -74,9 +75,9 @@ function Share() {
             </div>
           </div>
         )}
-        {media?.type.includes("video") && (
+        {media?.type.includes("video") && previewURL && (
           <div className="relative">
-            <video src={previewURL} controls />
+            <Video path={previewURL} controls />
             <div
               onClick={() => setMedia(null)}
               className="absolute top-2 right-2 bg-black bg-opacity-50 text-white h-8 w-8 flex items-center justify-center rounded-full cursor-pointer"
