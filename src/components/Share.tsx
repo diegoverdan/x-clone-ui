@@ -45,7 +45,7 @@ function Share() {
         />
 
         {/* PREVIEW IMAGE */}
-        {previewURL && (
+        {media?.type.includes("image") && previewURL && (
           <div className="relative rounded-xl overflow-hidden">
             <NextImage
               alt="preview"
@@ -64,6 +64,26 @@ function Share() {
               onClick={() => setIsEditorOpen(true)}
               className="absolute top-2 left-2 bg-black bg-opacity-50 text-white px-4 py-1 rounded-full font-bold text-sm cursor-pointer"
             >
+              Edit
+            </div>
+            <div
+              onClick={() => setMedia(null)}
+              className="absolute top-2 right-2 bg-black bg-opacity-50 text-white h-8 w-8 flex items-center justify-center rounded-full cursor-pointer"
+            >
+              X
+            </div>
+          </div>
+        )}
+        {media?.type.includes("video") && (
+          <div className="relative">
+            <video src={previewURL} controls />
+            <div
+              onClick={() => setMedia(null)}
+              className="absolute top-2 right-2 bg-black bg-opacity-50 text-white h-8 w-8 flex items-center justify-center rounded-full cursor-pointer"
+            >
+              X
+            </div>
+            <div className="absolute top-2 left-2 bg-black bg-opacity-50 text-white px-4 py-1 rounded-full font-bold text-sm cursor-pointer">
               Edit
             </div>
           </div>
@@ -86,6 +106,7 @@ function Share() {
               id="file"
               name="file"
               type="file"
+              accept="image/*,video/*"
               onChange={handleMediaChange}
             />
             <label htmlFor="file">
